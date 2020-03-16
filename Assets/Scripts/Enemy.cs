@@ -8,6 +8,7 @@ public class Enemy : MonoBehaviour
     // test QQQqq
     // saa122
     // update XXX
+    // remote update
     [SerializeField] private string name;
     [SerializeField] private float maxHP;
     
