@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    // test
+    // test xxx
     [SerializeField] private string name;
     [SerializeField] private float maxHP;
     
