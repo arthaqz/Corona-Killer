@@ -7,7 +7,7 @@ public class Enemy : MonoBehaviour
 {
     // test QQQqq
     // saa122
-    // update 7
+    // update XXX
     [SerializeField] private string name;
     [SerializeField] private float maxHP;
     
