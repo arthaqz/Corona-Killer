@@ -17,10 +17,6 @@ public class Enemy : MonoBehaviour
         sumHP = maxHP;
     }
 
-    private void Update()
-    {
-        Hit();
-    }
 
     public void TakeDamage(float damage)
     {
@@ -36,10 +32,11 @@ public class Enemy : MonoBehaviour
         }
     }
     
-    private void Hit()
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        var hitInfo = Physics2D.OverlapCircle(transform.position, collisionDistance);
-        if (hitInfo.gameObject.CompareTag("Player"))
-            hitInfo.transform.parent.gameObject.GetComponent<Player>().TakeDamage(damage);
+        if (other.gameObject.tag == "Player")
+        {
+            other.gameObject.GetComponent<Player>().TakeDamage(damage);
+        }
     }
 }

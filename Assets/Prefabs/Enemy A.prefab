@@ -49,8 +49,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Joshua
   maxHP: 2
-  damage: 0
-  collisionDistance: 0
+  damage: 10
+  collisionDistance: 0.66
 --- !u!50 &2950335926169499097
 Rigidbody2D:
   serializedVersion: 4
@@ -190,7 +190,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2645564613835602586}
   - component: {fileID: 2761656761366987643}
-  m_Layer: 9
+  m_Layer: 11
   m_Name: Foot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
