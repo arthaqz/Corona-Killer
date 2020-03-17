@@ -23,7 +23,7 @@ public class Gun : MonoBehaviour
 
         if (timeBtwShots <= 0)
         {
-            if (Input.GetMouseButtonDown(1))
+            if (Input.GetMouseButton(1))
             {
                 Instantiate(projectile, shotPoint.position, transform.rotation, TempParent.Instance.transform);
                 timeBtwShots = startTimeBtwShots;

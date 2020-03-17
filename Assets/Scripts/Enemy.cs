@@ -5,12 +5,10 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    // test QQQqq
-    // saa122
-    // update XXX
-    // remote update
     [SerializeField] private string name;
     [SerializeField] private float maxHP;
+    [SerializeField] private int damage;
+    [SerializeField] private float collisionDistance;
     
     private float sumHP;
 
@@ -19,10 +17,13 @@ public class Enemy : MonoBehaviour
         sumHP = maxHP;
     }
 
+    private void Update()
+    {
+        Hit();
+    }
 
     public void TakeDamage(float damage)
     {
-        Debug.Log(name + " has taken " + damage + " damage.");
         sumHP -= damage;
         IsDead();
     }
@@ -31,8 +32,14 @@ public class Enemy : MonoBehaviour
     {
         if (sumHP <= 0)
         {
-            Debug.Log(name + " has died!");
             Destroy(this.gameObject);
         }
+    }
+    
+    private void Hit()
+    {
+        var hitInfo = Physics2D.OverlapCircle(transform.position, collisionDistance);
+        if (hitInfo.gameObject.CompareTag("Player"))
+            hitInfo.transform.parent.gameObject.GetComponent<Player>().TakeDamage(damage);
     }
 }

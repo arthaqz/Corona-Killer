@@ -17,7 +17,7 @@ public class Spitter : MonoBehaviour
     private void Spit()
     {
         
-        Instantiate(coronaGermPrefab, transform.position, Quaternion.identity, transform);
+        Instantiate(coronaGermPrefab, transform.position, Quaternion.identity, TempParent.Instance.transform);
         maxSpits++;
     }
 }

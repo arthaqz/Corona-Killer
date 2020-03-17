@@ -10,12 +10,11 @@ public class Bullet : MonoBehaviour
     public LayerMask hittableLayer;
     [SerializeField] private float damage;
     public float speed;
-    public float lifeTime;
     public float distance;
 
     private void Start()
     {
-        Invoke(nameof(OnDestroy), lifeTime);
+        Invoke(nameof(DestroyBullet), GameSettings.BulletLifetime);
         
     }
 
@@ -32,12 +31,13 @@ public class Bullet : MonoBehaviour
         if (hitInfo.collider != null)
         {
             if (hitInfo.collider.gameObject.CompareTag("Enemy"))
-                hitInfo.collider.transform.parent.gameObject.GetComponent<Enemy>().TakeDamage(damage);
-            OnDestroy();
+                hitInfo.collider.transform.GetComponent<Enemy>().TakeDamage(damage);
+            
+            DestroyBullet();
         }
     }
 
-    private void OnDestroy()
+    private void DestroyBullet()
     {
         Instantiate(destroyEffect, transform.position, Quaternion.identity, TempParent.Instance.transform);
         Destroy(this.gameObject);
