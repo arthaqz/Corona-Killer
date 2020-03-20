@@ -82,6 +82,36 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &776017917
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 776017918}
+  m_Layer: 9
+  m_Name: Ground Detector
+  m_TagString: Untagged
+  m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &776017918
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 776017917}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.5, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2505261441145212465}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1401466249207626325
 GameObject:
   m_ObjectHideFlags: 0
@@ -91,9 +121,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2505261441145212465}
-  - component: {fileID: 6276036067928770473}
   - component: {fileID: 5862424577199602275}
   - component: {fileID: 3946145261227085537}
+  - component: {fileID: 6276036067928770473}
   m_Layer: 9
   m_Name: Corona Germ
   m_TagString: Enemy
@@ -115,37 +145,10 @@ Transform:
   - {fileID: 796800315082854701}
   - {fileID: 4251012694996788629}
   - {fileID: 43394487}
+  - {fileID: 776017918}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6276036067928770473
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1401466249207626325}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3b43e382138b5dd4b9c94dc85c507f38, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  name: Coronicudus
-  maxHP: 3
-  damage: 5
-  veil: {fileID: 43394486}
-  veilDieCooldown: 3
-  dieEffect: {fileID: 5761074874535803605, guid: ec5e8867243d7b042894369911965b31,
-    type: 3}
-  patrolPoints:
-  - {fileID: 0}
-  - {fileID: 0}
-  moveSpeed: 4
-  actualPatrolPoint: {fileID: 0}
-  startWaitTime: 1.5
-  groundMask:
-    serializedVersion: 2
-    m_Bits: 256
 --- !u!50 &5862424577199602275
 Rigidbody2D:
   serializedVersion: 4
@@ -183,6 +186,36 @@ CircleCollider2D:
   m_Offset: {x: 0.0025917888, y: -0.051835775}
   serializedVersion: 2
   m_Radius: 0.63218194
+--- !u!114 &6276036067928770473
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1401466249207626325}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b43e382138b5dd4b9c94dc85c507f38, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  name: Coronicudus
+  maxHP: 3
+  damage: 5
+  veil: {fileID: 43394486}
+  veilDieCooldown: 3
+  dieEffect: {fileID: 5761074874535803605, guid: ec5e8867243d7b042894369911965b31,
+    type: 3}
+  patrolPoints:
+  - {fileID: 0}
+  - {fileID: 0}
+  moveSpeed: 4
+  actualPatrolPoint: {fileID: 0}
+  startWaitTime: 1.5
+  groundMask:
+    serializedVersion: 2
+    m_Bits: 256
+  groundDetector: {fileID: 776017917}
+  isFacingRight: 1
 --- !u!1 &5474803297374894047
 GameObject:
   m_ObjectHideFlags: 0
