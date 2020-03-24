@@ -19,6 +19,8 @@ using UnityEngine;
         public float reloadTime;
         private bool isReloading;
 
+        public Aiming aimingState;
+
         private void Awake()
         {
             sumAmmo = maxAmmo;
@@ -59,5 +61,40 @@ using UnityEngine;
                 timeBtwShots -= Time.deltaTime;
             }
         }
-        
+
+        public void Aim(Aiming aimingType)
+        {
+            Vector3 rot;
+            
+            switch (aimingType)
+            {
+                case Aiming.UP:
+                    rot = new Vector3(0,0,0);
+                    aimingState = Aiming.UP;
+                    break;
+                case Aiming.DOWN:
+                    rot = new Vector3(0,0,180);
+                    break;
+                case Aiming.LEFT:
+                    aimingState = Aiming.LEFT;
+                    rot = new Vector3(0,0,90);
+                    break;
+                case Aiming.RIGHT:
+                    aimingState = Aiming.RIGHT;
+                    rot = new Vector3(0,0,-90);
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException(nameof(aimingType), aimingType, null);
+            }
+
+            transform.rotation = Quaternion.Euler(rot);
+        }
+
+        public enum Aiming
+        {
+            UP,
+            DOWN,
+            LEFT,
+            RIGHT
+        }
     }
