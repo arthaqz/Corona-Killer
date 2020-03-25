@@ -8,7 +8,6 @@ using UnityEngine;
         public float offset;
 
         public GameObject projectile;
-
         public Transform shotPoint;
         
         public float timeBtwShots;
@@ -20,6 +19,14 @@ using UnityEngine;
         private bool isReloading;
 
         public Aiming aimingState;
+        
+        public Vector3 aimingUpRight = new Vector3(0,0,0);
+        public Vector3 aimingUpLeft = new Vector3(0,0,0);
+        public Vector3 aimingDownRight = new Vector3(0,0,180);
+        public Vector3 aimingDownLeft = new Vector3(0,0,180);
+        public Vector3 aimingLeft = new Vector3(0,0,90);
+        public Vector3 aimingRight = new Vector3(0,0,-90);
+        
 
         private void Awake()
         {
@@ -32,7 +39,6 @@ using UnityEngine;
             if (isReloading) return;
             if (sumAmmo == maxAmmo) return;
 
-            
             StartCoroutine(ReloadingProcess());
         }
 
@@ -61,39 +67,44 @@ using UnityEngine;
                 timeBtwShots -= Time.deltaTime;
             }
         }
-
         public void Aim(Aiming aimingType)
         {
             Vector3 rot;
             
             switch (aimingType)
             {
-                case Aiming.UP:
-                    rot = new Vector3(0,0,0);
-                    aimingState = Aiming.UP;
+                case Aiming.UPRIGHT:
+                    rot = aimingUpRight;
                     break;
-                case Aiming.DOWN:
-                    rot = new Vector3(0,0,180);
+                case Aiming.UPLEFT:
+                    rot = aimingUpLeft;
+                    break;
+                case Aiming.DOWNRIGHT:
+                    rot = aimingDownRight;
+                    break;
+                case Aiming.DOWNLEFT:
+                    rot = aimingDownLeft;
                     break;
                 case Aiming.LEFT:
-                    aimingState = Aiming.LEFT;
-                    rot = new Vector3(0,0,90);
+                    rot = aimingLeft;
                     break;
                 case Aiming.RIGHT:
-                    aimingState = Aiming.RIGHT;
-                    rot = new Vector3(0,0,-90);
+                    rot = aimingRight;
                     break;
                 default:
                     throw new ArgumentOutOfRangeException(nameof(aimingType), aimingType, null);
             }
 
-            transform.rotation = Quaternion.Euler(rot);
+            transform.rotation =  Quaternion.Euler(rot);
+            
         }
 
         public enum Aiming
         {
-            UP,
-            DOWN,
+            UPRIGHT,
+            UPLEFT,
+            DOWNRIGHT,
+            DOWNLEFT,
             LEFT,
             RIGHT
         }

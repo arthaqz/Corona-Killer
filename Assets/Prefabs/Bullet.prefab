@@ -122,12 +122,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1e8403657b4909498365db49beb6bea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  destroyEffect: {fileID: 5761074874535803605, guid: ec5e8867243d7b042894369911965b31,
+  destroyEffect: {fileID: 7461977767617891097, guid: ed4ba9b0829345e4999e8d590b20e6cc,
     type: 3}
   hittableLayer:
     serializedVersion: 2
     m_Bits: 768
   damage: 1
   speed: 15
-  lifeTime: 1.5
   distance: 0.5

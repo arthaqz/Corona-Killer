@@ -275,7 +275,7 @@ MonoBehaviour:
   maxHP: 3
   damage: 10
   veil: {fileID: 43394486}
-  dieEffect: {fileID: 5761074874535803605, guid: ec5e8867243d7b042894369911965b31,
+  dieEffect: {fileID: 7461977767617891097, guid: ed4ba9b0829345e4999e8d590b20e6cc,
     type: 3}
   moveSpeed: 6
   groundMask:
